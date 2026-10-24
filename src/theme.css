@@ -18,3 +18,9 @@
 .video-dialog .video-fallback{margin-top:12px;color:#9bd7ff}.website .video-dialog p.muted{font-size:11px;line-height:1.4;margin:8px 0 0;max-width:none;color:#8f9caf}
 @media(max-width:600px){.video-modal{padding:10px}.video-dialog{width:100%;max-height:96dvh;padding:10px;border-radius:12px}.video-dialog-heading{gap:10px}.video-dialog-heading h2{font-size:12px}.video-dialog-heading button{padding:8px 10px}.video-dialog iframe{margin-top:10px;border-radius:6px}}
 @media(max-height:480px) and (min-width:601px){.video-modal{padding:8px}.video-dialog{width:min(1100px,96vw);padding:10px}.video-dialog iframe{max-height:calc(100dvh - 125px);width:auto;max-width:100%;margin-left:auto;margin-right:auto}}
+
+/* Layered cinema frame with luminous rails, using the selected theme accent. */
+.video-dialog{position:relative;isolation:isolate;border-width:3px;border-color:color-mix(in srgb,var(--modal-accent) 66%,#c4efff);box-shadow:0 0 0 3px color-mix(in srgb,var(--modal-accent) 22%,transparent),0 0 14px color-mix(in srgb,var(--modal-accent) 85%,transparent),0 0 48px color-mix(in srgb,var(--modal-accent) 58%,transparent),0 0 120px color-mix(in srgb,var(--modal-accent) 32%,transparent),0 30px 100px #000c}
+.video-dialog::before,.video-dialog::after{content:'';position:absolute;pointer-events:none;z-index:1;border-radius:20px;background:linear-gradient(90deg,transparent,var(--modal-accent) 20%,#bcefff 50%,var(--modal-accent) 80%,transparent);height:4px;left:12%;right:12%;box-shadow:0 0 8px #a7e4ff,0 0 22px var(--modal-accent),0 0 45px var(--modal-accent)}
+.video-dialog::before{top:0}.video-dialog::after{bottom:0}
+.video-dialog iframe{border-width:2px;border-color:color-mix(in srgb,var(--modal-accent) 65%,#9adfff);box-shadow:-7px 0 18px color-mix(in srgb,var(--modal-accent) 34%,transparent),7px 0 18px color-mix(in srgb,var(--modal-accent) 34%,transparent),0 0 2px #bbeaff}
