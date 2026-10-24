@@ -47,3 +47,9 @@
 .website .collection-count{border-left:2px solid var(--neon-green);padding-left:12px}.website .video-pagination{border-color:#299dff33}.website .video-pagination button{background:#102332;border-color:#299dff55}.website .video-pagination button:hover:not(:disabled){border-color:var(--neon-green);box-shadow:0 0 14px #5bffc033}
 .website footer{position:relative;border-top-color:#299dff30;background:linear-gradient(120deg,#299dff05,#5bffc005)}.website footer::before{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--neon-blue),var(--neon-green),transparent);box-shadow:0 0 12px #5bffc055}
 @media(prefers-reduced-motion:reduce){.website .public-button,.website .video-card,.website nav a{transition:none}.website .video-card:hover,.website .video-card:focus-within,.website .public-button:hover{transform:none}}
+
+/* Self-hosted Alien Encounters logo face; body typography remains editable. */
+@font-face{font-family:'Alien Encounters Logo';src:url('./assets/fonts/Alien-Encounters-Solid-Bold-Italic.ttf') format('truetype');font-weight:700;font-style:italic;font-display:swap}
+.website .brand,.cms-brand{font-family:'Alien Encounters Logo',Arial,sans-serif;font-weight:700;font-style:italic;letter-spacing:.5px;font-synthesis:none;text-shadow:0 0 10px #299dff55,0 0 24px #5bffc025}
+.website .brand{font-size:36px;line-height:1.2}.cms-brand{font-size:23px;letter-spacing:0;padding-left:0;padding-right:0;white-space:nowrap}.cms-brand span{font-family:Arial,sans-serif;font-style:normal;font-size:8px;margin-left:6px}.preview-stage .website .brand{font-size:25px}.website footer .brand{font-size:30px}
+@media(max-width:600px){.website header{flex-wrap:wrap;gap:20px}.website .brand{font-size:28px}.website nav{gap:20px}.cms-brand{font-size:0}.cms-brand:first-letter{font-family:Arial,sans-serif;font-size:28px}.preview-stage .website header{gap:16px}.preview-stage .website .brand{font-size:23px}}
