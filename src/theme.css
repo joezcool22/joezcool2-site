@@ -53,3 +53,7 @@
 .website .brand,.cms-brand{font-family:'Alien Encounters Logo',Arial,sans-serif;font-weight:700;font-style:italic;letter-spacing:.5px;font-synthesis:none;text-shadow:0 0 10px #299dff55,0 0 24px #5bffc025}
 .website .brand{font-size:36px;line-height:1.2}.cms-brand{font-size:23px;letter-spacing:0;padding-left:0;padding-right:0;white-space:nowrap}.cms-brand span{font-family:Arial,sans-serif;font-style:normal;font-size:8px;margin-left:6px}.preview-stage .website .brand{font-size:25px}.website footer .brand{font-size:30px}
 @media(max-width:600px){.website header{flex-wrap:wrap;gap:20px}.website .brand{font-size:28px}.website nav{gap:20px}.cms-brand{font-size:0}.cms-brand:first-letter{font-family:Arial,sans-serif;font-size:28px}.preview-stage .website header{gap:16px}.preview-stage .website .brand{font-size:23px}}
+
+/* Electric-blue halo around the Alien Encounters wordmark. */
+.website .brand,.cms-brand{color:#edfbff;text-shadow:0 0 2px #fff,0 0 5px #95dfff,0 0 10px #28aaff,0 0 20px #087cff,0 0 36px #087cff99;filter:drop-shadow(0 0 5px #158fff55)}
+.website .brand:hover{color:#fff;text-shadow:0 0 3px #fff,0 0 8px #9de6ff,0 0 16px #29adff,0 0 30px #087cff,0 0 46px #087cffaa}
