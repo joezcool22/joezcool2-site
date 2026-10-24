@@ -2,6 +2,8 @@
 name: Deploy to GitHub Pages
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 permissions:
   contents: read
 concurrency:
@@ -36,3 +38,4 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+

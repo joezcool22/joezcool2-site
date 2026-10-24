@@ -31,15 +31,24 @@ Media library > Videos includes 500 unique YouTube links from joezcool2-video-li
 The collection is seeded into the draft only when the videos field is absent. Refresh does not re-import removed entries. Metadata edits and removals autosave and are included in validated JSON backups. Existing public pages are unchanged; this addition is an admin collection, not a public video gallery. Run node tests/videos.cjs for import, persistence, and backup checks.
 
 
-## GitHub Pages preparation
+## Live preview and republishing
 
-Source repository: https://github.com/joezcool22/joezcool2-site
+Preview: https://joezcool22.github.io/joezcool2-site/
+Repository: https://github.com/joezcool22/joezcool2-site
 
-The Pages workflow is manual only. Uploading or pushing source does not deploy this site. When ready for a preview deployment:
-1. In repository Settings > Pages, choose GitHub Actions as the build source.
-2. Open Actions > Deploy to GitHub Pages > Run workflow on main.
-3. After success, use https://joezcool22.github.io/joezcool2-site/.
+The public hosted site always reads src/published-site.json, including portable image data. Every visitor receives the same deployed snapshot. Draft content is never used for the hosted public pages. Public video galleries support search, section and format filters, pagination, and YouTube playback. No authentication or backend is provided.
 
-The Vite configuration uses relative asset URLs and the app uses hash routes. node_modules, dist, and local browser content are not committed.
+To edit and republish:
+1. Open /#/admin locally or on the preview URL. Drafts autosave in that browser and origin.
+2. To start from the current deployed version, Backups > Load deployed content into draft (confirm replacement).
+3. Make changes; choose Publish locally.
+4. In Backups, choose Export published site. This downloads published-site.json with published content and images only.
+5. In this project run: npm run import:published -- "C:/path/to/published-site.json"
+6. Run node tests/videos.cjs and npm run build.
+7. Commit and push. GitHub Actions validates, builds, and deploys pushes to main. It also supports a manual workflow run.
 
-Release limitation: this is still a local CMS demo. The Publish button writes only to the current browser. Uploaded images and edited content are not uploaded to GitHub. The source video catalog is included, but public video galleries and shared published-content loading still need implementation before replacing the existing site. No existing domain settings are changed by this setup.
+You can give Codex the exported file path and ask it to import and republish. Do not place GitHub credentials in the website. Editing on the hosted CMS does not automatically upload changes. The public site remains on the last deployment until a successful push and workflow run.
+
+The Vite configuration uses relative asset paths and routing uses hashes for repository subpaths. Domain settings are unchanged. Point joezcool2.com at Pages only when the replacement is ready. Existing local browser content is preserved and can be exported separately.
+
+The initial live preview uses new JoezCool2 sample copy and the complete video catalog. It does not copy private/local drafts automatically. scripts/seed-release.cjs created the first snapshot; do not rerun it over edited published content.

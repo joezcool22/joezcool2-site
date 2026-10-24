@@ -1,0 +1,3 @@
+// scripts/content-model.cjs
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),ts=require('typescript');
+const cache={};function load(file){file=path.resolve(file);if(file.endsWith('.json'))return JSON.parse(fs.readFileSync(file,'utf8'));if(!path.extname(file))file+='.ts';if(cache[file])return cache[file].exports;const m={exports:{}};cache[file]=m;vm.runInNewContext(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,esModuleInterop:true}}).outputText,{exports:m.exports,module:m,require:p=>load(path.resolve(path.dirname(file),p)),crypto:globalThis.crypto,structuredClone});return m.exports;}module.exports=load;

@@ -14,10 +14,13 @@ Keep all work inside this project. Preserve existing files and local content.
 `npm install`, `npm run dev -- --host 127.0.0.1 --port 5173`, `npm run build`, `npm run preview -- --host 127.0.0.1`.
 
 ## Verification
-Run production build. Check draft autosave, publish, refresh persistence, and public navigation. Draft edits must never silently alter published content. Confirm destructive actions, validate imports, and retain images required by the published snapshot. Do not add authentication claims, deployments, or scheduled tasks.
+Run production build. Check draft autosave, publish, refresh persistence, and public navigation. Draft edits must never silently alter published content. Confirm destructive actions, validate imports, and retain images required by the published snapshot. Do not add authentication claims or scheduled tasks. GitHub Pages deployment to the preview URL is authorized; do not change domain settings.
 
 - src/theme.css contains the Bolt-inspired dark visual layer. Preserve the one-time themeRevision marker when changing storage; never reapply theme defaults on each load.
 
 
 - src/videos.ts adapts the root video JSON and validates video entries; src/VideoLibrary.tsx renders categorized, filterable admin video cards and previews. Preserve original placement metadata and deduplicate by YouTube ID. The optional Content.videos field supports old backups. Seed only absent draft collections. Run node tests/videos.cjs after changes to video storage.
+
+
+- Hosted public pages render src/published-site.json, never browser-local drafts. Export published-only snapshots from Backups and import via npm run import:published -- path. Pushes to main deploy the preview. Test shared content and retain all source video placements.
 
